@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jadwal Pertandingan Turnamen Mobile Legends</title>
+  <style>
+    /* Gaya umum halaman */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    /* Gaya untuk BABAK PENYISIAN dengan warna gradasi */
+    .babak-penyisian {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+      background-image: linear-gradient(#f39c12, #e74c3c, #8e44ad); /* Gradasi warna */
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 30px; /* Memberi jarak antara BABAK PENYISIAN dan pertandingan */
+    }
+    /* Gaya untuk setiap pertandingan */
+    .match {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #e9ecef;
+      position: relative;
+    }
+    .team {
+      flex: 1;
+      margin: 0 10px;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+      background-color: #28a745;  /* Hijau */
+      color: #fff;
+    }
+    .match-time {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.9em;
+      font-weight: bold;
+      color: black; /* Warna teks hitam tanpa latar belakang */
+    }
+    .versus {
+      font-size: 1.2em;
+      font-weight: bold;
+      padding: 0 10px;
+    }
+    .status {
+      font-size: 0.9em;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    .win {
+      color: #f1c40f; /* Kuning untuk pemenang */
+    }
+    .lose {
+      color: #e74c3c; /* Merah untuk yang kalah */
+    }
+    /* Gaya untuk daftar tim */
+    .team-list {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .team-list h2 {
+      margin-bottom: 20px;
+    }
+    .team-list-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .team-list-container .team-name {
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: bold;
+      transition: transform 0.3s;
+    }
+    .team-list-container .team-name:hover {
+      transform: scale(1.05);
+    }
+    /* Warna menarik untuk setiap tim */
+    .team-list-container .team-name:nth-child(1) { background-color: #e74c3c; }
+    .team-list-container .team-name:nth-child(2) { background-color: #2ecc71; }
+    .team-list-container .team-name:nth-child(3) { background-color: #3498db; }
+    .team-list-container .team-name:nth-child(4) { background-color: #9b59b6; }
+    .team-list-container .team-name:nth-child(5) { background-color: #f1c40f; }
+    .team-list-container .team-name:nth-child(6) { background-color: #e67e22; }
+    .team-list-container .team-name:nth-child(7) { background-color: #1abc9c; }
+    .team-list-container .team-name:nth-child(8) { background-color: #34495e; }
+    .team-list-container .team-name:nth-child(9) { background-color: #d35400; }
+    .team-list-container .team-name:nth-child(10) { background-color: #7f8c8d; }
+
+    /* Gaya untuk tombol LIVE */
+    .live-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 30px;
+      background-color: #e74c3c; /* Warna merah yang menarik */
+      color: #fff;
+      text-align: center;
+      font-size: 0.7em;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      width: auto;
+    }
+
+    .live-button:hover {
+      background-color: #c0392b; /* Warna lebih gelap saat hover */
+    }
+
+    /* Gaya untuk memposisikan tombol di bawah dan tengah */
+    .live-button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* Gaya untuk footer */
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-top: 5px;
+      padding: 10px;
+      font-size: 0.9em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Jadwal Pertandingan Turnamen Mobile Legends</h1>
+
+    <!-- BABAK PENYISIAN -->
+    <div class="babak-penyisian">BABAK PENYISIAN</div>
+
+    <!-- Pertandingan 1 -->
+    <div class="match">
+      <div class="match-time">10:00 WIB</div>
+      <div class="team">Tim Alpha <!--<div class="status win">Menang</div>--></div>
+      <div class="versus">VS</div>
+      <div class="team">Tim Bravo <!--<div class="status lose">Kalah</div>--></div>
+    </div>
+
+    <!-- Pertandingan 2 -->
+    <div class="match">
+      <div class="match-time">11:00 WIB</div>
+      <div class="team">Tim Charlie <!-- <div class="status win">Menang</div>--></div>
+      <div class="versus">VS</div>
+      <div class="team">Tim Delta <!-- <div class="status lose">Kalah</div>--></div>
+    </div>
+
+    <!-- Pertandingan 3 -->
+    <div class="match">
+      <div class="match-time">12:00 WIB</div>
+      <div class="team">Tim Echo <!-- <div class="status win">Menang</div>--></div>
+      <div class="versus">VS</div>
+      <div class="team">Tim Foxtrot <!-- <div class="status lose">Kalah</div>--></div>
+    </div>
+
+    <!-- Pertandingan 4 -->
+    <div class="match">
+      <div class="match-time">13:00 WIB</div>
+      <div class="team">Tim Golf <!-- <div class="status win">Menang</div>--></div>
+      <div class="versus">VS</div>
+      <div class="team">Tim Hotel <!-- <div class="status lose">Kalah</div>--></div>
+    </div>
+
+    <!-- Pertandingan 5 -->
+    <div class="match">
+      <div class="match-time">14:00 WIB</div>
+      <div class="team">Tim India <!-- <div class="status win">Menang</div> --> </div>
+      <div class="versus">VS</div>
+      <div class="team">Tim Juliet <!-- <div class="status lose">Kalah</div> --> </div>
+    </div>
+
+    <!-- Daftar Tim -->
+    <div class="team-list">
+      <h2>Daftar Tim</h2>
+      <div class="team-list-container">
+        <div class="team-name">Tim Alpha</div>
+        <div class="team-name">Tim Bravo</div>
+        <div class="team-name">Tim Charlie</div>
+        <div class="team-name">Tim Delta</div>
+        <div class="team-name">Tim Echo</div>
+        <div class="team-name">Tim Foxtrot</div>
+        <div class="team-name">Tim Golf</div>
+        <div class="team-name">Tim Hotel</div>
+        <div class="team-name">Tim India</div>
+        <div class="team-name">Tim Juliet</div>
+      </div>
+    </div>
+
+    <!-- Tombol LIVE -->
+    <div class="live-button-container">
+      <a href="https://www.youtube.com/live" target="_blank">
+        <button class="live-button">LIVE</button>
+      </a>
+    </div>
+    <footer>
+     <p>Copyright © 2025 KutuMoba</p>
+    </footer>
+  </div>
+</body>
+</html>
