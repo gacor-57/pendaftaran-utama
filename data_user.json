@@ -1,0 +1,17 @@
+[
+    {
+        "nama_kapten": "JohnDoe",
+        "id_game_kapten": "123456",
+        "password": "password123"
+    },
+    {
+        "nama_kapten": "JaneSmith",
+        "id_game_kapten": "654321",
+        "password": "qwerty"
+    },
+    {
+        "nama_kapten": "KutuMoba",
+        "id_game_kapten": "32156879",
+        "password": "pongge57"
+    },
+]
